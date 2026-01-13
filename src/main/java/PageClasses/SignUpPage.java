@@ -16,7 +16,13 @@ public class SignUpPage extends BaseClass {
 
 	@FindBy(xpath = "//span[text()='Existing User? Log in']")
 	WebElement existingUserLoginLink;
+	
+	@FindBy(xpath = "//input[@maxlength='10']")
+	WebElement EnterMobileNumber;
 
+	@FindBy(xpath = "//span[text()='CONTINUE']")
+	WebElement ContinueButton;
+	
 	public void verifySignUpPage() {
 		
 		String expectedTitle = "Online Shopping India | Buy Mobiles, Electronics, Appliances, Clothing and More Online at Flipkart.com";
@@ -31,5 +37,10 @@ public class SignUpPage extends BaseClass {
 	public LoginPage clickLoginLink() {
 		existingUserLoginLink.click();
 		return PageFactory.initElements(driver, LoginPage.class);
+	}
+
+	public void signUp(String mobileNumber) {
+		EnterMobileNumber.sendKeys(mobileNumber);
+		ContinueButton.click();	
 	}
 }

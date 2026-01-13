@@ -30,25 +30,28 @@ public class ProductsPage extends BaseClass {
 	}
 
 //	Apply Filters for Product 1
-	@FindBy(xpath = "//div/section[2]/div[3]/div/div[2]")
+	@FindBy(xpath = "//div/section[3]/div[3]/div/div[2]/div")
 	WebElement slider;
-	@FindBy(xpath = "//div/section[4]")
+	@FindBy(xpath = "//div/section/div/div[text()='Brand']")
 	WebElement clickBrandButton;
-	@FindBy(xpath = "//div/section[4]/div[2]/div/div/input")
+	@FindBy(xpath = "//input[@placeholder='Search Brand']")
 	WebElement searchBrand;
-	@FindBy(xpath = "//div/section[4]/div[2]/div/div[2]/div/label/div[2]")
-	WebElement selectBrand;
+	@FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div/div[1]/div/div/div/section[5]/div[2]/div[1]/div[2]/div/label/div[2]")
+	WebElement Brand;
 	@FindBy(xpath = "//div[text()='Price -- Low to High']")
 	WebElement sortPrice;
 
 //	Product 1
+	@FindBy(xpath = "//div[@data-id]")
+	List<WebElement> HeadphoneList;
+	
 	@FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div/div[2]/div[2]/div/div[1]/div/a[2]")
 	WebElement product1;
 
 	@FindBy(xpath = "//div/div[3]/div[1]/div[2]/div[2]/div/div[1]/h1/span")
 	WebElement productName;
 
-	@FindBy(xpath = "//div[@id='container']/div/div[3]/div/div/div[2]/div/ul/li[1]/button")
+	@FindBy(xpath = "//button[text()='Add to cart']")
 	WebElement addToCartButton;
 
 //	Apply Filters for Product 2
@@ -74,8 +77,8 @@ public class ProductsPage extends BaseClass {
 	WebElement MoreColors;
 
 //	Product 2
-	@FindBy(xpath = "//div/div[3]/div/div[2]/div[2]/div/div/div/a")
-	private List<WebElement> Shoes;
+	@FindBy(xpath = "//div[@data-id]")
+	private List<WebElement> ShoesList;
 
 //	Kids Products
 	@FindBy(xpath = "//section/div[3]/div/div[2]/div")
@@ -93,7 +96,7 @@ public class ProductsPage extends BaseClass {
 	@FindBy(xpath = "//div[@data-id]")
 	List<WebElement> KidsProducts;
 
-	public void applyFiltersForProduct1() throws InterruptedException {
+	public void applyFiltersForProduct1(String BrandName) throws InterruptedException {
 		Assert.assertEquals(driver.getTitle(),
 				"HeadPhones- Buy Products Online at Best Price in India - All Categories | Flipkart.com");
 
@@ -104,8 +107,9 @@ public class ProductsPage extends BaseClass {
 		Thread.sleep(3000);
 //		Select Brand
 		clickBrandButton.click();
-		searchBrand.sendKeys("boAt");
-		selectBrand.click();
+		searchBrand.sendKeys(BrandName);
+		
+		Brand.click();
 
 		WebDriverWait waits = new WebDriverWait(driver, Duration.ofMinutes(1));
 		waits.until(ExpectedConditions.elementToBeClickable(sortPrice));
@@ -113,12 +117,30 @@ public class ProductsPage extends BaseClass {
 //		Sort Price
 		Thread.sleep(3000);
 		sortPrice.click();
+		
 
 	}
 
 	public HomePage product1() throws InterruptedException {
 
 		Thread.sleep(2000);
+		
+		int count = 1;
+
+		System.out.println();
+		System.out.println("Headphones: ");
+		for (WebElement headphone : HeadphoneList) {
+
+			String productName = headphone.findElement(By.xpath(".//div[@class='RGLWAk']/a[2]")).getText();
+
+			String price = headphone.findElement(By.xpath(".//a[@class='fb4uj3']/div/div")).getText();
+
+			System.out.println((count) + ") Product: " + productName + " | Price: " + price);
+
+			count++;
+		}
+		
+		
 		product1.click();
 
 		Set<String> windowIds = driver.getWindowHandles();
@@ -177,10 +199,30 @@ public class ProductsPage extends BaseClass {
 	}
 
 	public HomePage product2() throws InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.elementToBeClickable(Shoes.get(0)));
+		
 		Thread.sleep(2000);
-		Shoes.get(0).click();
+		int count = 1;
+
+		System.out.println();
+		System.out.println("Shoes: ");
+		for (WebElement shoes : ShoesList) {
+
+			if (count == 6) {
+				break;
+			}
+			String productName = shoes.findElement(By.xpath(".//div[@class='p0C73x']/a[1]")).getText();
+
+			String price = shoes.findElement(By.xpath(".//div[@class='p0C73x']/a[2]/div/div[1]")).getText();
+
+			System.out.println((count) + ") Product: " + productName + " | Price: " + price);
+
+			count++;
+		}
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.elementToBeClickable(ShoesList.get(0)));
+		Thread.sleep(2000);
+		ShoesList.get(0).click();
 
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Set<String> windowIds = driver.getWindowHandles();

@@ -54,11 +54,9 @@ public class LoginPage extends BaseClass {
         LoginField.sendKeys("7447207375");
         // Click the "Request OTP" button
         getOTP.click();
-
-        
         
         // Wait for OTP input (manual entry)
-        Thread.sleep(5000); // Pause for 15 seconds to allow manual OTP entry);
+        Thread.sleep(15000);
         
         // Return a new HomePage object after successful login
         return PageFactory.initElements(driver, HomePage.class);

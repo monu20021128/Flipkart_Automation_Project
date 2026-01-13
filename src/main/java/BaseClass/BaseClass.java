@@ -17,6 +17,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -55,6 +56,9 @@ public class BaseClass {
 
 	public HomePage openFlipkart() {
 		driver.get("https://www.flipkart.com/");
+		String ActualTitle = driver.getTitle();
+		String ExpectedTitle = "Online Shopping India Mobile, Cameras, Lifestyle & more Online @ Flipkart.com";
+		Assert.assertEquals(ActualTitle, ExpectedTitle);
 		return PageFactory.initElements(driver, HomePage.class);
 	}
 

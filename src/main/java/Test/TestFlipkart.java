@@ -31,21 +31,21 @@ public class TestFlipkart extends BaseClass {
 		BaseClass base = new BaseClass();
 		
 		logger.log(Status.INFO, "Initializing the Browser");
-		base.openBrowser("Chrome");
+		base.openBrowser("Edge");
 		logger.log(Status.INFO, "Opening Flipkart");
 		HomePage home = base.openFlipkart();
 		logger.log(Status.INFO, "Searching Product1");
 		ProductsPage product1 = home.searchProduct1();
 		logger.log(Status.INFO, "Applying Filters and Selecting Product1");
-		product1.applyFiltersForProduct1();
-		logger.log(Status.INFO, "Navigating to Product1 Page and add to Cart");
+		product1.applyFiltersForProduct1("boAt");
+		logger.log(Status.INFO, "Navigated to Product1 Page and added product to Cart");
 		HomePage home2 = product1.product1();
 		home2.closeLoginWindow();
 		logger.log(Status.INFO, "Searching Product2");
 		ProductsPage product2 = home2.searchProduct2();
 		logger.log(Status.INFO, "Applying Filters and Selecting Product2");
 		product2.applyFiltersForProduct2();
-		logger.log(Status.INFO, "Navigating to Product2 Page and add to Cart");
+		logger.log(Status.INFO, "Navigated to Product2 Page and added product to Cart");
 		HomePage home3 = product2.product2();
 		logger.log(Status.INFO, "Navigating to Kids Section under Fashion");
 		ProductsPage product3 = home3.Fashion();
@@ -81,9 +81,9 @@ public class TestFlipkart extends BaseClass {
 		flight.verifyFlightsPageAndBookTicket();	
 		logger.log(Status.PASS, "Test Case Failed");
 	}
-	
-	@Test
-	public void Test2() throws InterruptedException {
+
+//	@Test
+	public void Test2() throws InterruptedException, IOException {
 		logger=report.createTest("Test Two");
 		BaseClass base = new BaseClass();
 		
@@ -103,6 +103,43 @@ public class TestFlipkart extends BaseClass {
 		logger.log(Status.PASS, "Test Case Passed");
 		
 	}
+	
+//	@Test
+	public void Test3() throws InterruptedException {
+		logger=report.createTest("Test Three");
+		BaseClass base = new BaseClass();
+		
+		logger.log(Status.INFO, "Initializing the Browser");
+		base.openBrowser("Chrome");
+		
+		logger.log(Status.INFO, "Opening Flipkart");
+		HomePage home = base.openFlipkart();
+		logger.log(Status.INFO, "Searching Product1");
+		ProductsPage product1 = home.searchProduct1();
+		logger.log(Status.INFO, "Applying Filters and Selecting Product1");
+		product1.applyFiltersForProduct1("boAt");
+		logger.log(Status.INFO, "Navigated to Product1 Page and added product to Cart");
+		HomePage home2 = product1.product1();
+		home2.closeLoginWindow();
+		
+	}
+	
+//	@Test
+	public void Test4() throws InterruptedException {
+		logger=report.createTest("Test Three");
+		BaseClass base = new BaseClass();
+		
+		logger.log(Status.INFO, "Initializing the Browser");
+		base.openBrowser("Chrome");
+		
+		logger.log(Status.INFO, "Opening Flipkart");
+		HomePage home = base.openFlipkart();
+		
+		ProductsPage product2=home.searchProduct2();
+		product2.applyFiltersForProduct2();
+		product2.product2();
+	}
+	
 	
 	@AfterMethod
     public void flush() {

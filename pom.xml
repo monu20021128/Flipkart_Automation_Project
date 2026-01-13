@@ -31,6 +31,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.2.5</version>
+		</dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>4.19.1</version>
@@ -104,17 +109,7 @@
 			<version>2.20.0</version>
 		</dependency>
 
-		<dependency>
-			<groupId>CucumberFramework</groupId>
-			<artifactId>CucumberFramework</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 
-		<dependency>
-			<groupId>CucumberFramework</groupId>
-			<artifactId>CucumberFramework</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>

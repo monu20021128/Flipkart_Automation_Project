@@ -58,5 +58,8 @@ public class MyShoppingCart extends BaseClass {
 		super.GoToHomePage();
 		return PageFactory.initElements(driver, HomePage.class);
 	}
+	public void PlaceOrder() {
+		PlaceOrder.click();
+	}
 
 }
