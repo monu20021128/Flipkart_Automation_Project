@@ -3,7 +3,7 @@ package Utilities;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class ExtentReportManager {
 	
@@ -12,7 +12,7 @@ public class ExtentReportManager {
 		
 			String reportName= DateUtils.getTimeStamp()+".html";
 			
-			ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "\\target\\ExtentReport\\"+reportName);
+			ExtentSparkReporter htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir") + "\\target\\ExtentReport\\"+reportName);
 			ExtentReports report = new ExtentReports();
 			report.attachReporter(htmlReporter);
 			
