@@ -53,11 +53,6 @@
             <version>5.1.1</version>
         </dependency>
 
-        <dependency>
-        	<groupId>CucumberFramework</groupId>
-        	<artifactId>CucumberFramework</artifactId>
-        	<version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
