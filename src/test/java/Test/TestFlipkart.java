@@ -24,7 +24,7 @@ import PageClasses.SignUpPage;
 
 public class TestFlipkart extends BaseClass {
 
-	@Test
+//	@Test
 	public void Test1() throws InterruptedException, IOException {
 		
 		logger=report.createTest("Test One");
@@ -82,7 +82,7 @@ public class TestFlipkart extends BaseClass {
 		logger.log(Status.FAIL, "Test Case Failed");
 	}
 
-//	@Test
+	@Test
 	public void Test2() throws InterruptedException, IOException {
 		logger=report.createTest("Test Two");
 		BaseClass base = new BaseClass();
@@ -104,7 +104,7 @@ public class TestFlipkart extends BaseClass {
 		
 	}
 	
-//	@Test
+	@Test
 	public void Test3() throws InterruptedException, IOException {
 		logger=report.createTest("Test Three");
 		BaseClass base = new BaseClass();
@@ -124,7 +124,7 @@ public class TestFlipkart extends BaseClass {
 		
 	}
 	
-//	@Test
+	@Test
 	public void Test4() throws InterruptedException, IOException {
 		logger=report.createTest("Test Three");
 		BaseClass base = new BaseClass();

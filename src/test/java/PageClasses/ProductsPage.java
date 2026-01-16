@@ -132,6 +132,9 @@ public class ProductsPage extends BaseClass {
 		System.out.println();
 		System.out.println("Headphones: ");
 		for (WebElement headphone : HeadphoneList) {
+			if (count == 6) {
+				break;
+			}
 
 			String productName = headphone.findElement(By.xpath(".//div[@class='RGLWAk']/a[2]")).getText();
 
