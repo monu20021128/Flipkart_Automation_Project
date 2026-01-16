@@ -31,7 +31,7 @@ public class TestFlipkart extends BaseClass {
 		BaseClass base = new BaseClass();
 		
 		logger.log(Status.INFO, "Initializing the Browser");
-		base.openBrowser("Edge");
+		base.openBrowser("chrome");
 		logger.log(Status.INFO, "Opening Flipkart");
 		HomePage home = base.openFlipkart();
 		logger.log(Status.INFO, "Searching Product1");
@@ -79,7 +79,7 @@ public class TestFlipkart extends BaseClass {
 		FlightsBookings flight=home6.goToFlights();
 		logger.log(Status.INFO, "Verifying Flights Booking Page and Booking a Ticket");
 		flight.verifyFlightsPageAndBookTicket();	
-		logger.log(Status.PASS, "Test Case Failed");
+		logger.log(Status.FAIL, "Test Case Failed");
 	}
 
 //	@Test
@@ -105,7 +105,7 @@ public class TestFlipkart extends BaseClass {
 	}
 	
 //	@Test
-	public void Test3() throws InterruptedException {
+	public void Test3() throws InterruptedException, IOException {
 		logger=report.createTest("Test Three");
 		BaseClass base = new BaseClass();
 		
@@ -125,12 +125,12 @@ public class TestFlipkart extends BaseClass {
 	}
 	
 //	@Test
-	public void Test4() throws InterruptedException {
+	public void Test4() throws InterruptedException, IOException {
 		logger=report.createTest("Test Three");
 		BaseClass base = new BaseClass();
 		
 		logger.log(Status.INFO, "Initializing the Browser");
-		base.openBrowser("Chrome");
+		base.openBrowser("firefox");
 		
 		logger.log(Status.INFO, "Opening Flipkart");
 		HomePage home = base.openFlipkart();

@@ -80,6 +80,7 @@ public class BaseClass {
 
 	public void takeScreenShot() throws IOException {
 		String filePath = System.getProperty("user.dir") + "/Screenshots/" + generateFile();
+//		String filePath = System.getProperty("user.dir") + "/Screenshots/screenshot.png";
 		File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(screenshotFile, new File(filePath));
 	}

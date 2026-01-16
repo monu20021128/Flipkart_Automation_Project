@@ -2,6 +2,7 @@ package PageClasses;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -57,7 +58,7 @@ public class ProductsPage extends BaseClass {
 //	Apply Filters for Product 2
 	@FindBy(xpath = "//div/div[3]/div[1]/div[1]/div[2]/div/div/section[7]/div[1]/div")
 	WebElement Color;
-	@FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div[2]/div/div/section[8]/div[2]/div[1]/div[1]/input")
+	@FindBy(xpath = "//div/div[3]/div[1]/div[1]/div[2]/div/div/section[7]/div[2]/div[1]/div/input")
 	WebElement ShoeColor;
 	@FindBy(xpath = "//div[text()='White']")
 	WebElement White;
@@ -96,7 +97,7 @@ public class ProductsPage extends BaseClass {
 	@FindBy(xpath = "//div[@data-id]")
 	List<WebElement> KidsProducts;
 
-	public void applyFiltersForProduct1(String BrandName) throws InterruptedException {
+	public void applyFiltersForProduct1(String BrandName) throws InterruptedException, IOException {
 		Assert.assertEquals(driver.getTitle(),
 				"HeadPhones- Buy Products Online at Best Price in India - All Categories | Flipkart.com");
 
@@ -121,8 +122,9 @@ public class ProductsPage extends BaseClass {
 
 	}
 
-	public HomePage product1() throws InterruptedException {
+	public HomePage product1() throws InterruptedException, IOException {
 
+		
 		Thread.sleep(2000);
 		
 		int count = 1;
@@ -162,7 +164,7 @@ public class ProductsPage extends BaseClass {
 		return PageFactory.initElements(driver, HomePage.class);
 	}
 
-	public void applyFiltersForProduct2() throws InterruptedException {
+	public void applyFiltersForProduct2() throws InterruptedException, IOException {
 
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3000));
 
@@ -195,6 +197,7 @@ public class ProductsPage extends BaseClass {
 		wait.until(ExpectedConditions.elementToBeClickable(sortPrice));
 		Thread.sleep(2000);
 		sortPrice.click();
+		
 
 	}
 
@@ -251,7 +254,7 @@ public class ProductsPage extends BaseClass {
 				"Clothes & Accessories For Men, Women & Kids Online at Best Prices In India | Flipkart.com");
 	}
 
-	public void applyFiltersForKids() throws InterruptedException {
+	public void applyFiltersForKids() throws InterruptedException, IOException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -270,6 +273,7 @@ public class ProductsPage extends BaseClass {
 		Actions action = new Actions(driver);
 		action.clickAndHold(slider2).moveByOffset(-159, 0).release().build().perform();
 		Thread.sleep(2000);
+		
 	}
 
 	public HomePage KidsProduct() {
