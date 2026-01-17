@@ -6,7 +6,7 @@
       <class name="Test.TestFlipkart">
         <methods>
           <include name="flush"/>
-          <include name="Test3"/>
+          <include name="Test1"/>
         </methods>
       </class> <!-- Test.TestFlipkart -->
     </classes>
